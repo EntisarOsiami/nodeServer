@@ -1,9 +1,10 @@
 import { createServer } from 'node:http';
 import fs from 'node:fs';
 
-const data = fs.readFile('./node.webp');
+const data = fs.readFileSync('node.webp')
+
 const server = createServer((req, res) => {
-  res.writeHead(303, { 'Content-Type': 'image/webp' });
+  res.writeHead(200, { 'Content-Type': 'image/webp' });
   res.end(data);
   
   });
